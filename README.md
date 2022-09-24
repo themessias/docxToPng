@@ -1,6 +1,31 @@
 # docxToPng
-Um amigo me pediu pra fazer. Pra fazer rodar é só baixar o repositório, criar um ambiente virtual com as dependências e rodar o arquivo main.py no terminal.
+Um amigo me pediu pra fazer.
 
-Precisa ter o <a href="https://blog.alivate.com.au/poppler-windows/" target="_blank">Poppler</a> baixado.
+### Como utilizar
+1- Baixe a última versão do [Poppler](https://blog.alivate.com.au/poppler-windows/).
+
+2- Descompacte a pasta na pasta raiz do projeto e renomeie-a para apenas "Poppler".
+
+3- Abra o terminal do windows na pasta raiz e crie um ambiente virtual.
+```
+python -m venv venv
+```
+4- Digite o comando abaixo para ativar o ambiente virtual.
+```
+.\venv\scripts\activate
+```
+
+5- Instale as dependências no ambiente virtual.
+```
+pip install -r requirements.txt
+```
+
+6- Adicione os seus arquivos na pasta input.
+
+7- Rode o arquivo main.py no terminal.
+```
+python main.py
+```
+8- Abra a pasta output para ver seus arquivos.
 
 Obs.: Caso queira também a versão pdf do documento é só apagar a última linha.
