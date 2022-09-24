@@ -20,7 +20,7 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 
-6- Adicione os seus arquivos na pasta input.
+6- Crie uma pasta chamada input na raiz e adicione os seus arquivos .docx lá.
 
 7- Rode o arquivo main.py no terminal.
 ```
