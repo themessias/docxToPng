@@ -29,12 +29,13 @@ if __name__ == "__main__":
   files = getFiles()
   for file in files:
     print(file)
-    input = getFolder() + f"\input\{file}"
-    path = f'{getFolder()}\output'
-    createFolder(path)
-    output = getFolder() + f"\output\{removeExtension(file)}.pdf"
-    convert(input, output)
-    pages = convert_from_path(output, 500, poppler_path=r'.\poppler\bin')
+    inputFile = getFolder() + f"\input\{file}"
+    path = f'{getFolder()}'
+    createFolder(path+'\input')
+    createFolder(path+'\output')
+    outputFile = getFolder() + f"\output\{removeExtension(file)}.pdf"
+    convert(inputFile, outputFile)
+    pages = convert_from_path(outputFile, 500, poppler_path=r'.\poppler\bin')
     for page in pages:
       page.save(f'{getFolder()}\output\{removeExtension(file)}.png')
-    os.remove(output)
+    os.remove(outputFile)
