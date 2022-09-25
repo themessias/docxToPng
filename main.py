@@ -29,13 +29,16 @@ if __name__ == "__main__":
   files = getFiles()
   for file in files:
     inputFile = getFolder() + f"\input\{file}"
-    print(inputFile)
     path = f'{getFolder()}'
     createFolder(path+'\input')
     createFolder(path+'\output')
     outputFile = getFolder() + f"\output\{removeExtension(file)}.pdf"
     convert(source=inputFile, output_dir=path+'\output', soft=0)
     pages = convert_from_path(outputFile, 500, poppler_path=r'.\poppler\bin')
+    pngName = input(f'Digite o novo nome do arquivo {file}(Deixe vazio para manter o'\
+                    ' mesmo nome)\n->')
+    if not pngName:
+      pngName = removeExtension(file)
     for page in pages:
-      page.save(f'{getFolder()}\output\{removeExtension(file)}.png')
+      page.save(f'{getFolder()}\output\{pngName}.png')
     os.remove(outputFile)
