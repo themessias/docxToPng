@@ -1,5 +1,5 @@
 import os
-from docx2pdf import convert
+from msoffice2pdf import convert
 from pdf2image import convert_from_path
 
 def getFolder():
@@ -28,13 +28,13 @@ def createFolder(path):
 if __name__ == "__main__":
   files = getFiles()
   for file in files:
-    print(file)
     inputFile = getFolder() + f"\input\{file}"
+    print(inputFile)
     path = f'{getFolder()}'
     createFolder(path+'\input')
     createFolder(path+'\output')
     outputFile = getFolder() + f"\output\{removeExtension(file)}.pdf"
-    convert(inputFile, outputFile)
+    convert(source=inputFile, output_dir=path+'\output', soft=0)
     pages = convert_from_path(outputFile, 500, poppler_path=r'.\poppler\bin')
     for page in pages:
       page.save(f'{getFolder()}\output\{removeExtension(file)}.png')
